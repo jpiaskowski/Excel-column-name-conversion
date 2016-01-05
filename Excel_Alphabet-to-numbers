@@ -1,0 +1,23 @@
+#####the Reverse Function (excel columnn names to numbers)#######
+#Function goes from column "A" to "ZZ"
+
+excel.range.rev<- function(col.numb) {
+  c2<-col.numb
+    lets<-rep(LETTERS[1:26],1000/25)
+    lets1<-sort(lets)
+    lets2<-paste0(lets1,lets)
+    all.names<-c(lets[1:26],lets2)
+    dict<-1:length(all.names)
+    names(dict)<-all.names
+    answer<-dict[c2]
+  return(answer)
+}
+
+#Examples
+
+excel.range.rev("TO")
+
+c<-c("A","Z","AA","ZZ")
+excel.range.rev(c)
+
+
