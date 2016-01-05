@@ -1,0 +1,33 @@
+#Function to translate column numbers into Excel spreadsheet column ranges###
+
+func.excel.range<- function(col.index) {
+  c<-col.index
+
+        if (c <= 26) {
+          xls = LETTERS[c]
+        } else { 
+          if (c - floor(c/26)*26 > 0) {
+            first<- LETTERS[floor(c/26)]
+            second<-LETTERS[c - floor(c/26)*26]
+            xls = paste0(first,second)
+           } else  {  
+          first<- LETTERS[floor(c/26-1)]
+          second<-LETTERS[26 - (c - floor(c/26)*26)]
+          xls = paste0(first,second)
+           }
+        }
+    print(xls)
+}
+
+#Examples
+
+func.excel.range(5)
+func.excel.range(27)
+func.excel.range(52)
+func.excel.range(234)
+
+
+test<-sort(sample(1:600,5))
+sapply(test,func.excel.range)
+
+
